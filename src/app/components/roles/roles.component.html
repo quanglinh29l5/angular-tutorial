@@ -1,0 +1,27 @@
+<div>
+  <div>
+    <h3>list of roles</h3>
+    <div class="list-role">
+      <div *ngFor="let role of roles" class="role" [ngStyle]="getRandomStyle()">
+        {{ role }}
+      </div>
+    </div>
+  </div>
+  <div>
+    <ul>
+      <li *ngFor="let item of items; let i = index">
+        {{ item }}
+        <button (click)="onClickRemove(i)">Remove</button>
+      </li>
+    </ul>
+    <button (click)="onClickAdd()">Add Item</button>
+  </div>
+
+  <div>
+    <h3>Form</h3>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <input name="username" ngModel required />
+      <button type="submit" [disabled]="f.invalid">Submit</button>
+    </form>
+  </div>
+</div>
